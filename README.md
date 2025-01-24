@@ -22,6 +22,10 @@ Because of how the new WooCommerce Shipping Plugin works, you will need to chang
 
 Change a value in there, click verify and save, and continue to purchase your label.
 
+Update: The functionality has been updated to store the original shipping address, so after you click the "Swap Sender & Shipping Address" you'll see an "Undo Swap" button, which will allow you to revert the swap.
+
+Since the sender addresses are stored, you will need to clear out the swapped addresses after a while. You can do this by going to https://{your-domain}/wp-admin/admin.php?page=wc-settings&tab=shipping&section=woocommerce-shipping-settings 
+
 Wayyy less steps than it was before! I hope this helps!
 
 If you have any questions or need assistance with anything, don't hesitate to reach out:
