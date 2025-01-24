@@ -1,34 +1,86 @@
-For my WooCommerce store, I was always running into an issue where it would take me 5+ minutes to create a return label by swapping the sender and receiver addresses via Copying and Pasting.
+# WooCommerce Address Swap Plugin
 
-I got fed up with it and decided to start researching how the WooCommerce™ Shipping Plugin is set up to create labels.
+Tired of manually copying and pasting sender and receiver addresses when creating return labels in WooCommerce? I was too! It used to take me **5+ minutes** just to swap addresses manually. That's why I decided to dive into the WooCommerce™ Shipping Plugin and create this **address swap solution** to save time and effort.
 
-To use this PHP script, please copy and paste the contents into your choice of your child theme's functions.php file, or implement it into a code snippets plugin of your choice.
+## 🚀 Features
 
-I am using WPCodeBox. Here are my settings:
+- **One-Click Address Swap:**  
+  Easily swap the sender and recipient addresses in WooCommerce orders with a single click.
+- **Undo Swap Functionality:**  
+  Restore the original shipping address anytime with the "Undo Swap" button.
+- **AJAX-Powered:**  
+  Instant address switching without page reloads.
+- **Simple Integration:**  
+  Copy and paste the script into your child theme or use a code snippets plugin.
+- **Clear Stored Addresses:**  
+  Easily remove stored swapped addresses from WooCommerce settings.
 
-For "How to run the snippet" I have it set to "Always, on page load"
+---
 
-Hook/Priority: plugins_loaded / 10
+## 🛠️ Installation
 
-Snippet Order: 10
+You can add this functionality by copying the PHP script into either:
 
-Where to run the snippet: Admin Area
+1. **Child Theme’s `functions.php` file**  
+   - Navigate to `Appearance > Theme File Editor > functions.php`  
+   - Paste the script at the end of the file.
 
-To use the snippet, open up any physical order within WooCommerce. Within the customer Billing and Shipping detail panels, you'll see a button named "Swap Sender & Shipping Addresses"
+2. **Using a Code Snippets Plugin (Recommended)**  
+   I recommend using **WPCodeBox**, but you can use any snippets plugin of your choice.
 
-Once you click this, the page will start to refresh as the AJAX magic does its work behind the scenes. Now, when you go to create a label, you will find that your sending address is now the recipient address. 
+---
 
-Because of how the new WooCommerce Shipping Plugin works, you will need to change and verify the sender address. To do this, click the sender address, and click the newly added Sender Address which will be your customer's address. 
+## ⚙️ WPCodeBox Settings
 
-Change a value in there, click verify and save, and continue to purchase your label.
+If you're using WPCodeBox, here’s how to configure the snippet:
 
-Update: The functionality has been updated to store the original shipping address, so after you click the "Swap Sender & Shipping Address" you'll see an "Undo Swap" button, which will allow you to revert the swap.
+- **"How to run the snippet":** `Always, on page load`
+- **Hook/Priority:** `plugins_loaded / 10`
+- **Snippet Order:** `10`
+- **Where to run the snippet:** `Admin Area`
 
-Since the sender addresses are stored, you will need to clear out the swapped addresses after a while. You can do this by going to https://{your-domain}/wp-admin/admin.php?page=wc-settings&tab=shipping&section=woocommerce-shipping-settings 
+---
 
-Wayyy less steps than it was before! I hope this helps!
+## 🖱️ How to Use
 
-If you have any questions or need assistance with anything, don't hesitate to reach out:
+1. Open any **physical order** in WooCommerce.  
+2. In the **Billing and Shipping details** panel, you'll see a button:  
+   **“Swap Sender & Shipping Addresses”**  
+3. Click the button – the page will refresh as the magic happens via AJAX.  
+4. Your sender address is now swapped with the recipient address.  
+5. When creating a return label, simply select the new sender address (previous recipient) and verify it.
 
-Brian Lovelace
-info@lovelacecreative.co
+### **Undo the Swap**
+If you need to revert the changes, simply click the **“Undo Swap”** button that appears after swapping.
+
+---
+
+## 🔄 Clearing Stored Addresses
+
+Since sender addresses are stored, it's a good idea to clear them periodically.  
+You can do this by visiting the WooCommerce Shipping settings:
+
+https://{your-domain}/wp-admin/admin.php?page=wc-settings&tab=shipping&section=woocommerce-shipping-settings
+
+
+---
+
+## 💡 Notes
+
+- Due to how the WooCommerce Shipping Plugin works, you’ll need to **manually verify the sender address** after swapping.  
+  Simply click the sender address, select the new address, update a value, and click **Verify & Save** before purchasing your label.
+- This solution significantly reduces the number of manual steps needed compared to the default process.
+
+---
+
+## ❓ Need Help?
+
+If you have any questions or need assistance, feel free to reach out:
+
+**Brian Lovelace**  
+📧 [info@lovelacecreative.co](mailto:info@lovelacecreative.co)  
+🌐 [lovelacecreative.co](https://lovelacecreative.co)
+
+---
+
+### 🚀 Enjoy faster label creation with fewer steps! Hope this helps!
