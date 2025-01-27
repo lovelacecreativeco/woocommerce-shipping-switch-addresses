@@ -49,7 +49,7 @@ If you're using WPCodeBox, here’s how to configure the snippet:
 
 1. Open any **physical order** in WooCommerce.  
 2. In the **Billing and Shipping details** panel, you'll see a button:  
-   **“Swap Sender & Shipping Addresses”**  
+   **“Swap Origin & Customer Addresses”**  
 3. Click the button – the page will refresh as the magic happens via AJAX.  
 4. Your sender address is now swapped with the recipient address.  
 5. When creating a return label, simply select the new sender address (previous recipient) and verify it.
