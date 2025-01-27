@@ -1,6 +1,7 @@
 ![WooCommerce Address Swap Screenshot](assets/Sender-Receiver-Swap-Example.png)
 
-# WooCommerce Address Swap Plugin
+# WooCommerce Shipping Returns Plugin
+### Easily Create Return Labels within the WooCommerce Shipping Plugin using this simple origin & address swap script.
 
 Tired of manually copying and pasting sender and receiver addresses when creating return labels in WooCommerce? I was too! It used to take me **5+ minutes** just to swap addresses manually via copy/paste. That's why I decided to dive into the WooCommerce™ Shipping Plugin and create this **address swap solution** to save time and effort.
 
