@@ -5,9 +5,6 @@ add_action('woocommerce_admin_order_data_after_shipping_address', 'add_swap_and_
 
 function add_swap_and_undo_buttons($order) {
     $swap_done = $order->get_meta('_swap_done');
-    $swap_time = $order->get_meta('_swap_timestamp');
-    $undo_available = !$swap_time || (time() - $swap_time <= 86400); // Undo available within 24 hours
-
     ?>
     <script>
         jQuery(document).ready(function($) {
@@ -25,7 +22,7 @@ function add_swap_and_undo_buttons($order) {
                         $('#swap-sender-shipping').text('Swapping...');
                     },
                     success: function(response) {
-                        if(response.success) {
+                        if (response.success) {
                             location.reload();
                         } else {
                             alert('Error swapping addresses');
@@ -51,7 +48,7 @@ function add_swap_and_undo_buttons($order) {
                         $('#undo-swap-addresses').text('Undoing...');
                     },
                     success: function(response) {
-                        if(response.success) {
+                        if (response.success) {
                             location.reload();
                         } else {
                             alert('Error undoing swap');
@@ -65,9 +62,9 @@ function add_swap_and_undo_buttons($order) {
         });
     </script>
 
-    <?php if ($swap_done === 'yes' && $undo_available) : ?>
+    <?php if ($swap_done === 'yes') : ?>
         <p><button id="undo-swap-addresses" class="button">Undo Swap</button></p>
-        <p>Swap performed on: <?php echo date('Y-m-d H:i:s', $swap_time); ?></p>
+        <p>Swap performed on: <?php echo date('Y-m-d H:i:s', $order->get_meta('_swap_timestamp')); ?></p>
     <?php else : ?>
         <p><button id="swap-sender-shipping" class="button">Swap Sender & Shipping Addresses</button></p>
     <?php endif; ?>
@@ -154,6 +151,14 @@ function handle_undo_sender_shipping_swap() {
     $origin_address_service = new \Automattic\WCShipping\OriginAddresses\OriginAddressService();
     $origin_address_service->update_origin_addresses($original_sender);
 
+    // Remove all non-default addresses
+    $origin_addresses = $origin_address_service->get_origin_addresses();
+    foreach ($origin_addresses as $address) {
+        if (empty($address['default_address']) || !$address['default_address']) {
+            $origin_address_service->delete_origin_address($address['id']);
+        }
+    }
+
     // Remove swap status and timestamp
     $order->delete_meta_data('_original_sender_address');
     $order->delete_meta_data('_original_shipping_address');
@@ -162,5 +167,5 @@ function handle_undo_sender_shipping_swap() {
 
     $order->save();
 
-    wp_send_json_success(['message' => 'Address swap undone successfully']);
+    wp_send_json_success(['message' => 'Address swap undone successfully, and non-default origin addresses removed.']);
 }

@@ -10,12 +10,14 @@ Tired of manually copying and pasting sender and receiver addresses when creatin
   Easily swap the sender and recipient addresses in WooCommerce orders with a single click.
 - **Undo Swap Functionality:**  
   Restore the original shipping address anytime with the "Undo Swap" button.
+- **No Time Limit on Undo:**  
+  You can undo the swap anytime after it is performed.
 - **AJAX-Powered:**  
   Instant address switching without page reloads.
+- **Automatic Cleanup:**  
+  Removes all non-default origin addresses from WooCommerce settings during the undo process.
 - **Simple Integration:**  
   Copy and paste the script into your child theme or use a code snippets plugin.
-- **Clear Stored Addresses:**  
-  Easily remove stored swapped addresses from WooCommerce settings.
 
 ---
 
@@ -53,19 +55,18 @@ If you're using WPCodeBox, here’s how to configure the snippet:
 5. When creating a return label, simply select the new sender address (previous recipient) and verify it.
 
 ### **Undo the Swap**
-If you need to revert the changes, simply click the **“Undo Swap”** button that appears after swapping.
+If you need to revert the changes, simply click the **“Undo Swap”** button that appears after swapping. This will:
+
+- Restore the original shipping and sender addresses.
+- Automatically delete all non-default origin addresses from WooCommerce settings.
 
 ![Undo Swap Screenshot](assets/Undo-Swap-Example.png)
 
 ---
 
-## 🔄 Clearing Stored Addresses
+## 🔄 Automatic Cleanup of Origin Addresses
 
-Since sender addresses are stored, it's a good idea to clear them periodically.  
-You can do this by visiting the WooCommerce Shipping settings:
-
-https://{your-domain}/wp-admin/admin.php?page=wc-settings&tab=shipping&section=woocommerce-shipping-settings
-
+During the **Undo Swap** process, all origin addresses in the WooCommerce Shipping settings will be cleaned up, leaving only the default origin address intact. This helps maintain a tidy address list without requiring manual intervention.
 
 ---
 
@@ -73,6 +74,7 @@ https://{your-domain}/wp-admin/admin.php?page=wc-settings&tab=shipping&section=w
 
 - Due to how the WooCommerce Shipping Plugin works, you’ll need to **manually verify the sender address** after swapping.  
   Simply click the sender address, select the new address, update a value, and click **Verify & Save** before purchasing your label.
+- There is **no time limit** for undoing the swap, so you can revert it at any time.
 - This solution significantly reduces the number of manual steps needed compared to the default process.
 
 ---
