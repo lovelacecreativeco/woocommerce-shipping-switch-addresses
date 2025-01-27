@@ -1,3 +1,5 @@
+![WooCommerce Address Swap Screenshot](assets/Sender-Receiver-Swap-Example.png)
+
 # WooCommerce Address Swap Plugin
 
 Tired of manually copying and pasting sender and receiver addresses when creating return labels in WooCommerce? I was too! It used to take me **5+ minutes** just to swap addresses manually via copy/paste. That's why I decided to dive into the WooCommerce™ Shipping Plugin and create this **address swap solution** to save time and effort.
@@ -52,6 +54,8 @@ If you're using WPCodeBox, here’s how to configure the snippet:
 
 ### **Undo the Swap**
 If you need to revert the changes, simply click the **“Undo Swap”** button that appears after swapping.
+
+![Undo Swap Screenshot](assets/Undo-Swap-Example.png)
 
 ---
 
