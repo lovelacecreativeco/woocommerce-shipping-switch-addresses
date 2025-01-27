@@ -66,7 +66,7 @@ function add_swap_and_undo_buttons($order) {
         <p><button id="undo-swap-addresses" class="button">Undo Swap</button></p>
         <p>Swap performed on: <?php echo date('Y-m-d H:i:s', $order->get_meta('_swap_timestamp')); ?></p>
     <?php else : ?>
-        <p><button id="swap-sender-shipping" class="button">Swap Sender & Shipping Addresses</button></p>
+        <p><button id="swap-sender-shipping" class="button">Swap Origin & Customer Addresses</button></p>
     <?php endif; ?>
     <?php
 }
@@ -90,7 +90,7 @@ function handle_sender_shipping_swap() {
     $origin_addresses = $origin_address_service->get_origin_addresses();
 
     if (empty($origin_addresses)) {
-        wp_send_json_error(['message' => 'No sender address found']);
+        wp_send_json_error(['message' => 'No origin address found']);
     }
 
     // Assume first sender address is used
@@ -121,7 +121,7 @@ function handle_sender_shipping_swap() {
 
     $order->save();
 
-    wp_send_json_success(['message' => 'Sender and shipping addresses swapped successfully. Undo available.']);
+    wp_send_json_success(['message' => 'Origin and customer addresses swapped successfully. Undo available.']);
 }
 
 // Handle the undo swap functionality
